@@ -1,7 +1,9 @@
 <script>
   let name = "Leo";
   let belt = "orange";
-
+  let firstName = "Jimi";
+  let lastName = "Hendrix";
+  $: fullName = `${firstName} ${lastName}`;
   function changeColor() {
     belt = "black";
   }
@@ -31,7 +33,9 @@
 
 <main>
   <h1>Hello {name}!</h1>
-  <p style="color: {belt}">{belt} belt</p>
+  <p style="color: {belt}">{fullName} - {belt} belt</p>
   <button on:click={changeColor}>Change color</button>
+  <input bind:value={firstName} />
+  <input bind:value={lastName} />
   <input bind:value={belt} />
 </main>
