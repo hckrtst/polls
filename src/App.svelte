@@ -31,7 +31,7 @@
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>{belt} belt</p>
+  <p style="color: {belt}">{belt} belt</p>
   <button on:click={changeColor}>Change color</button>
   <input bind:value={belt} />
 </main>
