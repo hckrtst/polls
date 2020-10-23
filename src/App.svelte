@@ -1,5 +1,14 @@
 <script>
-  export let name;
+  let name = "Leo";
+  let belt = "orange";
+
+  function changeColor() {
+    belt = "black";
+  }
+
+  function updateBeltColor(e) {
+    belt = e.target.value;
+  }
 </script>
 
 <style>
@@ -26,5 +35,7 @@
 
 <main>
   <h1>Hello {name}!</h1>
-  <p>This is super cool!</p>
+  <p>{belt} belt</p>
+  <button on:click={changeColor}>Change color</button>
+  <input on:input={updateBeltColor} />
 </main>
