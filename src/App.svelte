@@ -5,10 +5,6 @@
   function changeColor() {
     belt = "black";
   }
-
-  function updateBeltColor(e) {
-    belt = e.target.value;
-  }
 </script>
 
 <style>
@@ -37,5 +33,5 @@
   <h1>Hello {name}!</h1>
   <p>{belt} belt</p>
   <button on:click={changeColor}>Change color</button>
-  <input on:input={updateBeltColor} />
+  <input bind:value={belt} />
 </main>
