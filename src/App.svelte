@@ -9,11 +9,14 @@
   function changeColor() {
     belt = "black";
   }
+  function removeStudent(id) {
+    people = people.filter((person) => person.id != id);
+  }
 
   let people = [
     { name: "yoshi", belt: "black", id: 1 },
     { name: "gawdy", belt: "brown", id: 2 },
-    { name: "dandy", belt: "yellow" },
+    { name: "dandy", belt: "yellow", id: 3 },
   ];
 </script>
 
@@ -50,6 +53,7 @@
   <div>
     {#each people as person (person.id)}
       <p>{person.name}, {person.belt}</p>
+      <button on:click={() => removeStudent(person.id)}>Remove</button>
     {:else}
       <p>No students yet</p>
     {/each}
