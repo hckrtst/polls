@@ -58,4 +58,10 @@
       <p>No students yet</p>
     {/each}
   </div>
+  {#if people.length === 0}
+    <p>Time to sign up some students</p>
+  {:else}
+    <p>Busy schedule</p>
+  {/if}
+  <p />
 </main>
