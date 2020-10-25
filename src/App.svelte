@@ -1,5 +1,6 @@
 <script>
   import { each } from "svelte/internal";
+  import Modal from "./Modal.svelte";
 
   let name = "Leo";
   let belt = "orange";
@@ -42,6 +43,7 @@
   }
 </style>
 
+<Modal />
 <main>
   <h1>Hello {name}!</h1>
   <p style="color: {belt}">{fullName} - {belt} belt</p>
