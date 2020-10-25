@@ -10,8 +10,11 @@
     belt = "black";
   }
 
-  let people = [{ name: "yoshi", color: "black", id: 1 }];
-  people = [];
+  let people = [
+    { name: "yoshi", belt: "black", id: 1 },
+    { name: "gawdy", belt: "brown", id: 2 },
+    { name: "dandy", belt: "yellow" },
+  ];
 </script>
 
 <style>
@@ -46,7 +49,7 @@
   <h2>Students</h2>
   <div>
     {#each people as person (person.id)}
-      <p>{person.name}</p>
+      <p>{person.name}, {person.belt}</p>
     {:else}
       <p>No students yet</p>
     {/each}
