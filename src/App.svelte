@@ -1,4 +1,6 @@
 <script>
+  import { each } from "svelte/internal";
+
   let name = "Leo";
   let belt = "orange";
   let firstName = "Jimi";
@@ -7,6 +9,9 @@
   function changeColor() {
     belt = "black";
   }
+
+  let people = [{ name: "yoshi", color: "black", id: 1 }];
+  people = [];
 </script>
 
 <style>
@@ -38,4 +43,12 @@
   <input bind:value={firstName} />
   <input bind:value={lastName} />
   <input bind:value={belt} />
+  <h2>Students</h2>
+  <div>
+    {#each people as person (person.id)}
+      <p>{person.name}</p>
+    {:else}
+      <p>No students yet</p>
+    {/each}
+  </div>
 </main>
