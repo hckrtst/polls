@@ -1,6 +1,6 @@
 <script>
   let show = true;
-  let promo = false;
+  let promo = true;
 </script>
 
 <style>
@@ -19,7 +19,7 @@
     text-align: center;
   }
 
-  .promo {
+  .promo .modal {
     padding: 10px;
     background-color: seagreen;
     border-radius: 5px;
@@ -31,8 +31,8 @@
 
 <main>
   {#if show}
-    <div class="backdrop">
-      <div class="modal" class:promo>
+    <div class="backdrop" class:promo>
+      <div class="modal">
         <p>Sign up for offers</p>
       </div>
     </div>
