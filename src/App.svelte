@@ -6,6 +6,12 @@
   let belt = "orange";
   let firstName = "Jimi";
   let lastName = "Hendrix";
+  let showModal = false;
+  let people = [
+    { name: "yoshi", belt: "black", id: 1 },
+    { name: "gawdy", belt: "brown", id: 2 },
+    { name: "dandy", belt: "yellow", id: 3 },
+  ];
   $: fullName = `${firstName} ${lastName}`;
   function changeColor() {
     belt = "black";
@@ -13,12 +19,9 @@
   function removeStudent(id) {
     people = people.filter((person) => person.id != id);
   }
-
-  let people = [
-    { name: "yoshi", belt: "black", id: 1 },
-    { name: "gawdy", belt: "brown", id: 2 },
-    { name: "dandy", belt: "yellow", id: 3 },
-  ];
+  function toggleModal() {
+    showModal = !showModal;
+  }
 </script>
 
 <style>
@@ -45,7 +48,7 @@
   }
 </style>
 
-<Modal />
+<Modal message="Spooktacular sale!" {showModal} />
 <main>
   <h1>Hello {name}!</h1>
   <p style="color: {belt}">{fullName} - {belt} belt</p>
@@ -67,5 +70,5 @@
   {:else}
     <p>Busy schedule</p>
   {/if}
-  <p />
+  <button on:click={toggleModal}>Show promotion</button>
 </main>
