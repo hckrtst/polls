@@ -32,7 +32,7 @@
 
 <main>
   {#if showModal}
-    <div class="backdrop" class:promo>
+    <div class="backdrop" class:promo on:click|self>
       <div class="modal">
         <p>{message}</p>
       </div>

@@ -48,7 +48,7 @@
   }
 </style>
 
-<Modal message="Spooktacular sale!" {showModal} />
+<Modal message="Spooktacular sale!" {showModal} on:click={toggleModal} />
 <main>
   <h1>Hello {name}!</h1>
   <p style="color: {belt}">{fullName} - {belt} belt</p>
