@@ -7,20 +7,34 @@
   let firstName = "Jimi";
   let lastName = "Hendrix";
   let showModal = false;
+  let userEmail;
   let people = [
     { name: "yoshi", belt: "black", id: 1 },
     { name: "gawdy", belt: "brown", id: 2 },
     { name: "dandy", belt: "yellow", id: 3 },
   ];
   $: fullName = `${firstName} ${lastName}`;
+
   function changeColor() {
     belt = "black";
   }
+
   function removeStudent(id) {
     people = people.filter((person) => person.id != id);
   }
+
   function toggleModal() {
     showModal = !showModal;
+    userEmail = null;
+  }
+
+  function signupHandler(e) {
+    if (!userEmail) {
+      alert(`Please provide a valid email address`);
+    } else {
+      alert(`Thanks for signing up with your email: ${userEmail}`);
+      toggleModal();
+    }
   }
 </script>
 
@@ -48,7 +62,15 @@
   }
 </style>
 
-<Modal message="Spooktacular sale!" {showModal} on:click={toggleModal} />
+<Modal {showModal} on:click={toggleModal}>
+  <h2 slot="title">Sale!</h2>
+  <div slot="content">
+    <p>Please sign up below</p>
+    <input id="email" placeholder="email" bind:value={userEmail} type="email" />
+    <button on:click={signupHandler}>Sign up</button>
+    <p>We never send you spam!</p>
+  </div>
+</Modal>
 <main>
   <h1>Hello {name}!</h1>
   <p style="color: {belt}">{fullName} - {belt} belt</p>
