@@ -1,12 +1,15 @@
 <script>
   import { each } from "svelte/internal";
   import Modal from "./Modal.svelte";
+  import FormModal from "./GenericModal.svelte";
+  import AddStudentForm from "./AddStudentForm.svelte";
 
   let name = "Leo";
   let belt = "orange";
   let firstName = "Jimi";
   let lastName = "Hendrix";
   let showModal = false;
+  let showAddStudentForm = false;
   let userEmail;
   let people = [
     { name: "yoshi", belt: "black", id: 1 },
@@ -26,6 +29,10 @@
   function toggleModal() {
     showModal = !showModal;
     userEmail = null;
+  }
+
+  function toggleAddStudentForm() {
+    showAddStudentForm = !showAddStudentForm;
   }
 
   function signupHandler(e) {
@@ -71,6 +78,11 @@
     <p>We never send you spam!</p>
   </div>
 </Modal>
+
+<FormModal showModal={showAddStudentForm} on:click={toggleAddStudentForm}>
+  <AddStudentForm />
+</FormModal>
+
 <main>
   <h1>Hello {name}!</h1>
   <p style="color: {belt}">{fullName} - {belt} belt</p>
@@ -93,4 +105,5 @@
     <p>Busy schedule</p>
   {/if}
   <button on:click={toggleModal}>Show promotion</button>
+  <button on:click={toggleAddStudentForm}>Add a new student</button>
 </main>
