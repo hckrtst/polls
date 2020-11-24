@@ -1,8 +1,10 @@
 <script>
-  let beltColour, name, age;
+  let beltColour;
+  let name, age;
+  let skills = [];
 
   function addStudentHandler() {
-    console.log(`Adding ${name}, ${beltColour}`);
+    console.log(`Adding ${name}, ${beltColour} ${skills}`);
   }
 </script>
 
@@ -11,11 +13,19 @@
     <h2>Add Student</h2>
     <div>
       <input id="name" placeholder="Full Name" bind:value={name} type="text" />
+      <select name="beltcolour" id="belt_colour" bind:value={beltColour}>
+        <option value="red">red</option>
+        <option value="yellow">yellow</option>
+        <option value="black">black</option>
+      </select>
       <input
-        id="belt_colour"
-        placeholder="belt colour"
-        bind:value={beltColour}
-        type="text" />
+        type="checkbox"
+        bind:group={skills}
+        value="sparring" />Sparring<br />
+      <input
+        type="checkbox"
+        bind:group={skills}
+        value="sommersault" />Sommersault<br />
       <input id="age" placeholder="age" bind:value={age} type="number" />
       <button type="submit">Sign up</button>
     </div>
