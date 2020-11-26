@@ -43,6 +43,10 @@
       toggleModal();
     }
   }
+
+  function addStudentHandler(event) {
+    console.log(`${event.detail.name} ${event.detail.beltColour}`);
+  }
 </script>
 
 <style>
@@ -80,7 +84,7 @@
 </Modal>
 
 <FormModal showModal={showAddStudentForm} on:click={toggleAddStudentForm}>
-  <AddStudentForm />
+  <AddStudentForm on:student={addStudentHandler} />
 </FormModal>
 
 <main>

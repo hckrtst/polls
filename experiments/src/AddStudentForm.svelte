@@ -1,10 +1,12 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   let beltColour;
   let name, age;
   let skills = [];
+  let dispatch = createEventDispatcher();
 
   function addStudentHandler() {
-    console.log(`Adding ${name}, ${beltColour} ${skills}`);
+    dispatch("student", { name, age, beltColour, skills });
   }
 </script>
 
