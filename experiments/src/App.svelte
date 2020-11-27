@@ -45,7 +45,14 @@
   }
 
   function addStudentHandler(event) {
-    console.log(`${event.detail.name} ${event.detail.beltColour}`);
+    people = [
+      ...people,
+      {
+        name: event.detail.name,
+        belt: event.detail.beltColour,
+        id: Math.random(),
+      },
+    ];
   }
 </script>
 
