@@ -1,5 +1,6 @@
 <script>
   import Header from "./components/Header.svelte";
+  import Footer from "./components/Footer.svelte";
 </script>
 
 <style>
@@ -20,3 +21,5 @@
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
 </main>
+
+<Footer />
