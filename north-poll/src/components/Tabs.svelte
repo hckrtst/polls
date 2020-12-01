@@ -19,6 +19,7 @@
   li {
     margin: 0 16px;
     font-size: 25px;
+    cursor: pointer;
   }
   .tabs {
     margin-bottom: 40px;
@@ -28,7 +29,13 @@
 <div class="tabs">
   <ul>
     {#each tabs as tab}
-      <li class:active={tab === activeTab}>{tab}</li>
+      <li
+        class:active={tab === activeTab}
+        on:click={() => {
+          console.log(`${tab}`);
+        }}>
+        {tab}
+      </li>
     {/each}
   </ul>
 </div>
