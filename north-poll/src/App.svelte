@@ -7,7 +7,7 @@
   let activeTab = tabs[0];
 
   function handleSelectTab(event) {
-    console.log(`selected ${event.detail.tab}`);
+    activeTab = event.detail.tab;
   }
 </script>
 
