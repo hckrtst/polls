@@ -5,6 +5,10 @@
 
   let tabs = ["Add Poll", "Active Polls"];
   let activeTab = tabs[0];
+
+  function handleSelectTab(event) {
+    console.log(`selected ${event.detail.tab}`);
+  }
 </script>
 
 <style>
@@ -16,7 +20,7 @@
 
 <Header />
 <main>
-  <Tabs {tabs} {activeTab} />
+  <Tabs {tabs} {activeTab} on:selectTab={handleSelectTab} />
 </main>
 
 <Footer />

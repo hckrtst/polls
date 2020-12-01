@@ -1,6 +1,8 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   export let tabs = [];
   export let activeTab;
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
@@ -32,7 +34,7 @@
       <li
         class:active={tab === activeTab}
         on:click={() => {
-          console.log(`${tab}`);
+          dispatch('selectTab', { tab });
         }}>
         {tab}
       </li>
