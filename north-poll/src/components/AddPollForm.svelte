@@ -1,4 +1,5 @@
 <script>
+  import Button from "./Button.svelte";
   let fields = {
     ques: '',
     ans_a: '',
@@ -21,7 +22,7 @@
     <label for="answer-b">Answer B:</label>
     <input type="text" id="answer-b">
   </div>
-  <button>Add</button>
+  <Button>Add</Button>
 </form>
 
 <style>
