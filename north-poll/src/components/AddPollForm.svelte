@@ -2,25 +2,58 @@
   import Button from "./Button.svelte";
   let fields = {
     ques: '',
-    ans_a: '',
-    ans_b: ''
+    ansA: '',
+    ansB: ''
   };
+  let errors= {
+    ques : '',
+    ansA : '',
+    ansB : ''
+  };
+  let valid = false;
+
+  function validateInput(field, len) {
+    if (field.trim().length < len) {
+      return [false, `Invalid  input, length should be at least ${len}`];
+    }
+    return [true, ''];
+  }
+
   function handleAdd() {
-    console.log(fields);
+    valid = true;
+    let ok = false;
+    [ok, errors.ques] = validateInput(fields.ques, 5);
+    if (!ok) valid = false;
+    else errors.ques = '';
+    [ok, errors.ansA] = validateInput(fields.ansA, 2);
+    if (!ok) valid = false;
+    else errors.ansA = '';
+    [ok, errors.ansB] = validateInput(fields.ansB, 2);
+    if (!ok) valid = false;
+    else errors.ansB = '';
+
+    if (valid) {
+      // TODO submit
+      console.log("Valid");
+    }
+    console.log(errors);
   }
 </script>
 <form on:submit|preventDefault={handleAdd}>
   <div class="form-field">
     <label for="question">Question:</label>
     <input type="text" id="question" bind:value={fields.ques}>
+    <div class:errmsg={errors.ques.length > 1}>{errors.ques}</div>
   </div>
   <div class="form-field">
     <label for="answer-a">Answer A:</label>
-    <input type="text" id="answer-a">
+    <input type="text" id="answer-a" bind:value={fields.ansA}>
+    <div class:errmsg={errors.ansA.length > 1}>{errors.ansA}</div>
   </div>
   <div class="form-field">
     <label for="answer-b">Answer B:</label>
-    <input type="text" id="answer-b">
+    <input type="text" id="answer-b" bind:value={fields.ansB}>
+    <div class:errmsg={errors.ansB.length > 1}>{errors.ansB}</div>
   </div>
   <Button>Add</Button>
 </form>
@@ -42,6 +75,9 @@
   label{
     margin: 10px auto;
     text-align: left;
+  }
+  .errmsg{
+    color: red;
   }
   
 </style>
