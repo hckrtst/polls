@@ -20,7 +20,8 @@
   ];
 
   function handleAddPoll(e) {
-    console.log(e.detail);
+    polls = [...polls, e.detail];
+    activeTab = tabs[1];
   }
 </script>
 
@@ -28,6 +29,10 @@
   main {
     max-width: 960px;
     margin: 40px auto;
+  }
+  .poll-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 </style>
 
@@ -37,9 +42,12 @@
   {#if activeTab === tabs[0]}
     <AddPollForm on:addPoll={handleAddPoll}/>
   {:else}
-    {#each polls as poll}
-      <p>{poll.ques}</p>
-    {/each}
+    <div class="poll-list">
+      {#each polls as poll}
+        <div>{poll.ques}</div>
+      {/each}
+    </div>
+    
   {/if}
 </main>
 
