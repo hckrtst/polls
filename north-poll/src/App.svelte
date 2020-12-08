@@ -10,6 +10,18 @@
   function handleSelectTab(event) {
     activeTab = event.detail.tab;
   }
+
+  let polls = [
+    {
+      ques: "what is the second largest country by landmass",
+      ansA: "Australia",
+      ansB: "Canada"
+    },
+  ];
+
+  function handleAddPoll(e) {
+    console.log(e.detail);
+  }
 </script>
 
 <style>
@@ -23,9 +35,11 @@
 <main>
   <Tabs {tabs} {activeTab} on:selectTab={handleSelectTab} />
   {#if activeTab === tabs[0]}
-    <AddPollForm/>
+    <AddPollForm on:addPoll={handleAddPoll}/>
   {:else}
-    <p>Current polls</p>
+    {#each polls as poll}
+      <p>{poll.ques}</p>
+    {/each}
   {/if}
 </main>
 

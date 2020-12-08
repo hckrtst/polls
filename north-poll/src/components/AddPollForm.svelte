@@ -1,5 +1,7 @@
 <script>
   import Button from "./Button.svelte";
+  import { createEventDispatcher } from 'svelte';
+
   let fields = {
     ques: '',
     ansA: '',
@@ -19,6 +21,8 @@
     return [true, ''];
   }
 
+  const dispatch = createEventDispatcher();
+
   function handleAdd() {
     valid = true;
     let ok = false;
@@ -33,10 +37,8 @@
     else errors.ansB = '';
 
     if (valid) {
-      // TODO submit
-      console.log("Valid");
+      dispatch('addPoll', fields);
     }
-    console.log(errors);
   }
 </script>
 <form on:submit|preventDefault={handleAdd}>
