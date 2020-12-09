@@ -14,14 +14,18 @@
 
   let polls = [
     {
+      id: 1,
       ques: "what is the second largest country by landmass",
       ansA: "Australia",
-      ansB: "Canada"
+      ansB: "Canada",
+      voteA: 0,
+      voteB: 0
     },
   ];
 
   function handleAddPoll(e) {
-    polls = [...polls, e.detail];
+    const poll = {...e.detail, id: Math.random(), votaA: 0, voteB: 0};
+    polls = [...polls, poll];
     activeTab = tabs[1];
   }
 </script>

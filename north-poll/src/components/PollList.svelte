@@ -10,7 +10,7 @@
 </style>
 
 <div class="poll-list">
-  {#each polls as poll}
+  {#each polls as poll (poll.id)}
     <div>{poll.ques}</div>
   {/each}
 </div>
