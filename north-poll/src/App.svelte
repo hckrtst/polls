@@ -3,6 +3,7 @@
   import Footer from "./components/Footer.svelte";
   import Tabs from "./components/Tabs.svelte";
   import AddPollForm from "./components/AddPollForm.svelte";
+  import PollList from "./components/PollList.svelte";
 
   let tabs = ["Add Poll", "Active Polls"];
   let activeTab = tabs[0];
@@ -30,10 +31,7 @@
     max-width: 960px;
     margin: 40px auto;
   }
-  .poll-list{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+  
 </style>
 
 <Header />
@@ -42,11 +40,7 @@
   {#if activeTab === tabs[0]}
     <AddPollForm on:addPoll={handleAddPoll}/>
   {:else}
-    <div class="poll-list">
-      {#each polls as poll}
-        <div>{poll.ques}</div>
-      {/each}
-    </div>
+    <PollList {polls} />
     
   {/if}
 </main>
