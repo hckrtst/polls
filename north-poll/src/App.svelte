@@ -18,13 +18,13 @@
       ques: "what is the second largest country by landmass",
       ansA: "Australia",
       ansB: "Canada",
-      voteA: 0,
-      voteB: 0
+      voteA: 10,
+      voteB: 4
     },
   ];
 
   function handleAddPoll(e) {
-    const poll = {...e.detail, id: Math.random(), votaA: 0, voteB: 0};
+    const poll = {...e.detail, id: Math.random(), voteA: 0, voteB: 0};
     polls = [...polls, poll];
     activeTab = tabs[1];
   }
